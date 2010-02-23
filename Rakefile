@@ -5,12 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "show_methods"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Show me the methods}
+    gem.description = %Q{This simple gem will show you all the methods you can use at the place where you call the method 'show_methods'}
     gem.email = "christiaan@oneye.be"
     gem.homepage = "http://github.com/khelben/show_methods"
     gem.authors = ["Christiaan Van den Poel"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
