@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/reflectorr.rb",
+     "reflectorr.gemspec",
      "test/fixtures/first_class.rb",
      "test/helper.rb",
      "test/test_show_methods.rb"

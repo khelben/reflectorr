@@ -4,7 +4,7 @@ Ruby is a great and powerful language, you can do some really cool stuff. But so
 at a place where you wished you had some superintelligent, real cool context-sensitive intellisense that you could use to see which method exactly 
 you can use at that place.  But we all use {vim|emacs|textmate|...} which are simple but effective editors. Although there's some completion you
 can use, it will not provide completion for some fancy module you've included, but you know it's there. 
-Sure, you can gan go through the documentation, but still you're not sure whether it is there or not.
+Sure, you can go through the documentation, but still you're not sure whether it is there or not.
 
 I find myself, from time to time, wondering "what methods can I use here?". Sure, I can fireup Rubymine and hope it's intelligent enough 
 to interpret my whole project and tell me perfectly all the methods I can use when I tab CTRL-SPACE. Most of the times, I'm disappointed 
