@@ -1,6 +1,110 @@
-= show_methods
+= Reflectorr
 
-Description goes here.
+Ruby is a great and powerful language, you can do some really cool stuff. But sometimes, as a developer, you're typing some code and you are 
+at a place where you wished you had some superintelligent, real cool context-sensitive intellisense that you could use to see which method exactly 
+you can use at that place.  But we all use {vim|emacs|textmate|...} which are simple but effective editors. Although there's some completion you
+can use, it will not provide completion for some fancy module you've included, but you know it's there. 
+Sure, you can gan go through the documentation, but still you're not sure whether it is there or not.
+
+I find myself, from time to time, wondering "what methods can I use here?". Sure, I can fireup Rubymine and hope it's intelligent enough 
+to interpret my whole project and tell me perfectly all the methods I can use when I tab CTRL-SPACE. Most of the times, I'm disappointed 
+by the fact Im not getting what I wanted.
+
+Enter 'reflectorr', it provides one single method called 'show_methods' which you can use everywhere in your code and it returns a hash 
+containing every included module as the key and an array of methods you can call at that place where you called it.
+
+An example:
+
+    require 'pp'
+    require 'reflectorr'
+    class MyClass
+        def an_instance_method
+        end
+        def self.a_class_method
+        end
+        pp show_methods
+        def self.a_second_class_method
+        end
+    end
+
+And this will return this
+
+   {"Object"=>        ["yaml_tag_subclasses?"],
+     "PP::ObjectMixin"=>[],
+     "Kernel"=>       ["test",
+                       "callcc",
+                       "gsub",
+                       "String",
+                       "exit",
+                       "require",
+                       "trap",
+                       "proc",
+                       "`",
+                       "fork",
+                       "global_variables",
+                       "print",
+                       "chomp!",
+                       "sprintf",
+                       "Integer",
+                       "fail",
+                       "rand",
+                       "autoload?",
+                       "readlines",
+                       "catch",
+                       "exit!",
+                       "open",
+                       "gsub!",
+                       "set_trace_func",
+                       "gets",
+                       "sleep",
+                       "iterator?",
+                       "select",
+                       "autoload",
+                       "getc",
+                       "chop",
+                       "Array",
+                       "abort",
+                       "pp",
+                       "lambda",
+                       "trace_var",
+                       "method_missing",
+                       "format",
+                       "local_variables",
+                       "putc",
+                       "exec",
+                       "split",
+                       "sub",
+                       "Float",
+                       "caller",
+                       "load",
+                       "eval",
+                       "binding",
+                       "p",
+                       "chop!",
+                       "URI",
+                       "throw",
+                       "printf",
+                       "srand",
+                       "raise",
+                       "readline",
+                       "block_given?",
+                       "at_exit",
+                       "syscall",
+                       "sub!",
+                       "chomp",
+                       "scan",
+                       "loop",
+                       "untrace_var",
+                       "warn",
+                       "system",
+                       "__method__",
+                       "puts"],
+    "MyClass"=>        ["a_class_method"]} 
+
+You can see it will show for 'MyClass' only the method 'a_class_method'.  'a_second_class_method' is defined after the 'show_methods' call and isn't
+available yet.  So keep this in mind also.
+
+So have fun, I hope you'll learn from it, and find it useful.  If not, just discard this :).
 
 == Note on Patches/Pull Requests
  
