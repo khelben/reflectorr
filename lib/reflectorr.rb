@@ -2,18 +2,28 @@
 class Object
   def show_methods
     result = {}
-    is_eigenklass = self.instance_of?(Class)
-    (is_eigenklass ? self : self.class).ancestors.each do |a|
-       result[a.name]=[]
-       if is_eigenklass 
-         a.singleton_methods(false).each do |m|
-           result[a.name].push m
-         end
-       else
-         a.instance_methods(false).each do |m|
-           result[a.name].push m
-         end
-       end
+    self.class.ancestors.each do |a|
+      result[a.name]=[]
+      a.instance_methods(false).sort.each do |m|
+        result[a.name].push m
+      end
+    end
+    result
+  end
+  def self.show_methods
+    result = {}
+    metaclass = class << self; self; end
+    self.ancestors.each do |a|
+      result[a.name] ||= []
+      a.singleton_methods(false).sort.each do |m|
+        result[a.name].push m
+      end
+    end
+    metaclass.ancestors.each do |a|
+      result[a.name] ||= []
+      a.instance_methods(false).sort.each do |m|
+        result[a.name].push m
+      end
     end
     result
   end

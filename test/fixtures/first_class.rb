@@ -1,24 +1,47 @@
+module Helpers
+  def first_helper
+
+  end
+  def self.second_helper
+  end
+end
+
+module ClassMethods
+  def class_method
+
+  end
+end
+
+module HelpersViaInclude
+  def self.included(klass)
+    klass.send(:extend ,ClassMethods)
+  end
+  module ClassMethods
+    def included_class_method
+
+    end
+  end
+end
+
 module ShowMethods
   module Fixtures
-    class FirstClass
-      def simple_method
-        {}
+    class ClassWithSomeMethods
+      include ::Helpers
+      extend ::ClassMethods  
+      include ::HelpersViaInclude
+      def one
+
       end
-    end
-    class SecondClass < FirstClass
-      def second_simple_method
-        ""
+      def two
+
       end
-    end
-    class ThirdClass
-      def self.third_method
-        ""
+      def self.three
+
       end
-    end
-    class FourthClass < ThirdClass
-      def self.fourth_method
+      def self.four
 
       end
     end
   end
 end
+
