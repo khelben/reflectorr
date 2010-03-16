@@ -1,4 +1,3 @@
-#module ShowMethods
 class Object
   def show_methods
     result = {}
@@ -28,4 +27,3 @@ class Object
     result
   end
 end
-#end

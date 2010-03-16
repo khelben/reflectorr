@@ -106,6 +106,10 @@ available yet.  So keep this in mind also.
 
 So have fun, I hope you'll learn from it, and find it useful.  If not, just discard this :).
 
+== History
+
+0.2.0: Total rewrite in order to include more ways of extending/excluding your class in the result.
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
